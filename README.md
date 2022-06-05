@@ -4,26 +4,22 @@
 command :
 nmap -sC -sT -A TAGRET_IP
 output:
-	'''bash
-	Starting Nmap 7.01 ( https://nmap.org ) at 2022-06-03 13:19 IST
-	Nmap scan report for 192.168.43.79
-	Host is up (0.000095s latency).
-	Not shown: 997 closed ports
-	PORT   STATE SERVICE VERSION
-	21/tcp open  ftp     vsftpd 3.0.3
-	|_ftp-anon: Anonymous FTP login allowed (FTP code 230)
-	22/tcp open  ssh     OpenSSH 7.2p2 Ubuntu 4ubuntu2.10 (Ubuntu Linux; protocol 2.0)
-	| ssh-hostkey:
-	|   2048 2c:25:1c:4b:b4:15:1b:07:32:97:84:f3:04:88:a1:9d (RSA)
-	|_  256 bf:ef:ca:99:aa:de:3d:5e:9c:4d:e7:2b:9f:73:45:86 (ECDSA)
-	80/tcp open  http    Apache httpd 2.4.18 ((Ubuntu))
-	|_http-server-header: Apache/2.4.18 (Ubuntu)
-	|_http-title: Apache2 Ubuntu Default Page: It works
-	Service Info: OSs: Unix, Linux; CPE: cpe:/o:linux:linux_kernel
 
-	Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
-	Nmap done: 1 IP address (1 host up) scanned in 7.54 seconds
-	'''
+PORT   STATE SERVICE VERSION
+21/tcp open  ftp     vsftpd 3.0.3
+|_ftp-anon: Anonymous FTP login allowed (FTP code 230)
+22/tcp open  ssh     OpenSSH 7.2p2 Ubuntu 4ubuntu2.10 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey:
+|   2048 2c:25:1c:4b:b4:15:1b:07:32:97:84:f3:04:88:a1:9d (RSA)
+|_  256 bf:ef:ca:99:aa:de:3d:5e:9c:4d:e7:2b:9f:73:45:86 (ECDSA)
+80/tcp open  http    Apache httpd 2.4.18 ((Ubuntu))
+|_http-server-header: Apache/2.4.18 (Ubuntu)
+|_http-title: Apache2 Ubuntu Default Page: It works
+Service Info: OSs: Unix, Linux; CPE: cpe:/o:linux:linux_kernel
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 7.54 seconds
+'''
 # We can see that anonymous login for ftp is allowed, so let's check it out by command "ftp TARGET_IP"
 	username: anonymous
 	password: <BLANK>
