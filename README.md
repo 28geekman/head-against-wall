@@ -1,8 +1,10 @@
 # Head against wall writeup for tryhackme
 
 1) Let's start by scanning with nmap!!
-command : nmap -sC -sT -A TAGRET_IP
+command :
+nmap -sC -sT -A TAGRET_IP
 output:
+	'''bash
 	Starting Nmap 7.01 ( https://nmap.org ) at 2022-06-03 13:19 IST
 	Nmap scan report for 192.168.43.79
 	Host is up (0.000095s latency).
@@ -21,7 +23,7 @@ output:
 
 	Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
 	Nmap done: 1 IP address (1 host up) scanned in 7.54 seconds
-
+	'''
 # We can see that anonymous login for ftp is allowed, so let's check it out by command "ftp TARGET_IP"
 	username: anonymous
 	password: <BLANK>
@@ -39,22 +41,26 @@ let's get that two files by command "get .username" and then "get .password"
 exit out of the server and looking at the files
 
 
-command "cat .username" :
+command 
+'''bash
+"cat .username" :
 	hello my friend,
                 for username please visit our website at $port(80)
 
-
-command "cat .password"
+'''
+command 
+'''bash
+"cat .password"
 	4a564b45344d44434b5247585159544d484641555552525a504648454f53544a4a564d464350493d
 
 password seems to be in hex format decrypting that gives you a base32 and that gives base64 string
 
 decrytping the base64 string gives you the password for particular user
+'''
+ we can ssh bruteforce the username, but as .username says let's check out the web server
 
-# we can ssh bruteforce the username, but as .username says let's check out the web server
 
-
-Bruteforcing web directories by command :
+# Bruteforcing web directories by command :
 	gobuster dir -u http://TARGET_IP -w PATH_TO_dirbuster_medium-2.3.txt 
 
 output:
